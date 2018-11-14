@@ -1,3 +1,12 @@
+function getUrlParameters() {
+	return window.location.search.substr(1).split('&').reduce(function (q, query) {
+		var chunks = query.split('=');
+		var key = chunks[0];
+		var value = chunks[1];
+		return (q[key] = value, q);
+	}, {});
+}
+
 function isIEorEdge() {
 	var userAgent = navigator.userAgent;
 	var match = /\b(MSIE |Trident.*?rv:|Edge\/)(\d+)/.exec(userAgent);
