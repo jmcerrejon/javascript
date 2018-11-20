@@ -48,3 +48,9 @@ function copy2Clipboard() {
         alert('Text copied to clipboard: ' + copyText.value);
     }
 }
+
+function lastDayOfMonth(year, month) {
+    var newDate = new Date(year, month++, 1);
+
+	return (new Date(newDate.getTime()-1000*60*60*24)).getDate();
+}
