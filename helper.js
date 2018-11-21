@@ -13,6 +13,11 @@ function isIEorEdge() {
 	return Boolean(match)
 }
 
+/* Return true if IE Version is between 6-11 */
+function isOlderIE() {
+	return (navigator.userAgent.indexOf('MSIE')!==-1 || navigator.appVersion.indexOf('Trident/') > -1);
+}
+
 /* Add ... in a long string */
 function strLimit(txt, long) {
     return (txt.length <= long) ? txt : txt.substring(0, long) + '...';
