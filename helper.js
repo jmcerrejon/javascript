@@ -33,8 +33,11 @@ function isEmpty(obj) {
 
 /* yyyy/mm/dd -> dd/mm/yyyy */
 function formatDate(date) {
-    var d = new Date(date),
-        month = '' + (d.getMonth() + 1),
+	var d = new Date(date);
+	if (typeof date === 'undefined' || !isValidDate(d)) {
+		return '-';
+	}
+	var month = '' + (d.getMonth() + 1),
         day = '' + d.getDate(),
         year = d.getFullYear();
 
@@ -42,6 +45,10 @@ function formatDate(date) {
     month = (month.length < 2) ? '0' + month : month;
 
     return [day, month, year].join('/');
+}
+
+function isValidDate(d) {
+  return d instanceof Date && !isNaN(d);
 }
 
 function copy2Clipboard() {
